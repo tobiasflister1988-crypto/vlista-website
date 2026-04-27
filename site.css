@@ -6,8 +6,10 @@ body { margin: 0; }
 
 .site {
   min-height: 100vh;
-  background: var(--paper);
+  background: transparent; /* fixed video sits behind */
   color: var(--ink);
+  position: relative;
+  z-index: 1;
 }
 
 .section {
@@ -15,6 +17,7 @@ body { margin: 0; }
   max-width: var(--max-w);
   margin: 0 auto;
   position: relative;
+  background: var(--paper);
 }
 .section--first  { padding-top: var(--s-9); }
 .section--last   { padding-bottom: var(--s-8); }
@@ -60,6 +63,7 @@ body { margin: 0; }
 
 /* Hero */
 .hero {
+  background: var(--paper);
   min-height: calc(100vh - 80px);
   padding: var(--s-9) var(--gutter) var(--s-8);
   max-width: var(--max-w);
@@ -254,6 +258,7 @@ body { margin: 0; }
 
 /* Contact / footer */
 .contact {
+  background: var(--paper);
   padding: var(--s-11) var(--gutter) var(--s-7);
   max-width: var(--max-w);
   margin: 0 auto;
