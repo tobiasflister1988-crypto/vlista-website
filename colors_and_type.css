@@ -1,0 +1,198 @@
+/* ==========================================================================
+   VLISTA — Colors & Type
+   Black on near-white. No accents. Hierarchy through SIZE and WEIGHT only.
+   ========================================================================== */
+
+/* --- Fonts ---------------------------------------------------------------- */
+/* Primary: Neue Haas Grotesk Display / Helvetica Now style.
+   Substitution: Inter Tight (Google Fonts) — closest free analog.
+   FLAG: confirm with user; ideally license Neue Haas Grotesk Display Pro. */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* ----- Color tokens ---------------------------------------------------- */
+  --ink:        #0A0A0A;   /* fg1 — body, headlines */
+  --ink-2:      #1A1A1A;   /* fg2 — secondary text on white */
+  --ink-3:      #6E6E6E;   /* fg3 — meta, captions, scroll hints */
+  --ink-4:      #B5B5B5;   /* fg4 — disabled, placeholder */
+  --rule:       #E5E5E5;   /* hairline rule */
+  --rule-strong:#0A0A0A;   /* full-weight rule */
+
+  --paper:      #F5F4F0;   /* bg1 — page background, off-white */
+  --paper-2:    #ECEBE6;   /* bg2 — slight nesting / hover */
+  --paper-pure: #FFFFFF;   /* pure white when needed (rare) */
+
+  --inverse-bg: #0A0A0A;   /* dark sections */
+  --inverse-fg: #F5F4F0;
+
+  /* Semantic */
+  --fg:         var(--ink);
+  --fg-muted:   var(--ink-3);
+  --bg:         var(--paper);
+  --link:       var(--ink);
+  --link-hover-opacity: 0.55;
+
+  /* ----- Type tokens ----------------------------------------------------- */
+  --font-sans:  'Inter Tight', 'Neue Haas Grotesk Display Pro', 'Helvetica Now Display',
+                'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono:  ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Weights */
+  --w-regular:  400;
+  --w-medium:   500;
+  --w-semibold: 600;
+  --w-bold:     700;
+  --w-black:    900;
+
+  /* Letter spacing — tight on display, normal on body */
+  --tracking-display: -0.04em;
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.02em;
+  --tracking-wider:   0.06em;   /* meta labels, eyebrow */
+
+  /* Line heights */
+  --lh-display: 0.92;
+  --lh-tight:   1.05;
+  --lh-snug:    1.2;
+  --lh-body:    1.45;
+
+  /* Type scale (clamped for fluid typography) */
+  --t-mega:    clamp(72px, 13vw, 220px);   /* hero statement */
+  --t-display: clamp(56px, 9vw,  160px);   /* section headlines, "ABOUT VLISTA" */
+  --t-h1:      clamp(40px, 6vw,  96px);    /* service / case study titles */
+  --t-h2:      clamp(28px, 3.4vw, 48px);   /* sub-titles, step labels */
+  --t-h3:      clamp(20px, 1.8vw, 28px);   /* eyebrow large */
+  --t-body-lg: clamp(20px, 1.6vw, 28px);   /* hero sub, lead paragraphs */
+  --t-body:    clamp(16px, 1.1vw, 18px);   /* default body */
+  --t-meta:    13px;                        /* eyebrow, scroll hint, copyright */
+
+  /* ----- Spacing tokens (8px base) -------------------------------------- */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+  --s-11: 192px;   /* between sections */
+  --s-12: 256px;   /* hero/section breathing */
+
+  /* Layout */
+  --gutter:   clamp(20px, 4vw, 64px);
+  --max-w:    1680px;
+  --rule-w:   1px;
+
+  /* Motion */
+  --ease:     cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur:      240ms;
+  --dur-slow: 480ms;
+
+  /* Radii — VLISTA uses NO radii. Tokens kept for explicit overrides only. */
+  --radius-0: 0;
+  --radius-1: 0;     /* keep zero on purpose */
+
+  /* Shadow — VLISTA uses NO shadows. */
+  --shadow-0: none;
+}
+
+/* --- Base ----------------------------------------------------------------- */
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-weight: var(--w-medium);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tracking-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--ink); color: var(--paper); }
+
+/* --- Semantic type classes ----------------------------------------------- */
+.t-mega,
+.t-display,
+.t-h1,
+.t-h2 {
+  font-weight: var(--w-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-display);
+  margin: 0;
+}
+
+.t-mega    { font-size: var(--t-mega); font-weight: var(--w-bold); line-height: 0.88; }
+.t-display { font-size: var(--t-display); }
+.t-h1      { font-size: var(--t-h1); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); }
+.t-h2      { font-size: var(--t-h2); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); }
+
+.t-h3 {
+  font-size: var(--t-h3);
+  font-weight: var(--w-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--lh-snug);
+  margin: 0;
+}
+
+.t-body-lg {
+  font-size: var(--t-body-lg);
+  font-weight: var(--w-medium);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+}
+
+.t-body {
+  font-size: var(--t-body);
+  font-weight: var(--w-regular);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+.t-meta {
+  font-size: var(--t-meta);
+  font-weight: var(--w-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  line-height: 1;
+}
+
+.t-num {
+  /* the "01", "02" featured-item numerals */
+  font-size: var(--t-h2);
+  font-weight: var(--w-bold);
+  font-feature-settings: "tnum";
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+}
+
+/* --- Links ---------------------------------------------------------------- */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+a:hover { opacity: var(--link-hover-opacity); }
+
+.link-underline {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+.link-underline:hover { text-decoration-thickness: 2px; opacity: 1; }
+
+/* --- Markers (the "+" and "#" accents) ----------------------------------- */
+.marker-plus::before { content: "+ "; }
+.marker-hash::before { content: "# "; }
+
+/* --- Rules ---------------------------------------------------------------- */
+.rule       { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+.rule-strong{ border: 0; border-top: 1px solid var(--rule-strong); margin: 0; }
