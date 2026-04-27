@@ -1,0 +1,142 @@
+/* scrollytelling.css — scroll-driven narrative layer */
+
+/* ── 1. Scroll progress bar ───────────────────────────────────────────────── */
+.scroll-bar-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 100;
+  background: var(--rule);
+}
+.scroll-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--ink);
+  transition: width 60ms linear;
+  transform-origin: left;
+}
+
+/* ── 2. Pinned scroll scene (Process) ────────────────────────────────────── */
+.scroll-scene {
+  position: relative;
+  height: 350vh;
+}
+.scroll-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--s-9) var(--gutter) var(--s-8);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* Step items inside pinned scene */
+.process-stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.process-step {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: grid;
+  grid-template-columns: 120px 1fr minmax(280px, 460px);
+  gap: var(--s-8);
+  align-items: baseline;
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out);
+  pointer-events: none;
+}
+.process-step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.process-step.is-done {
+  opacity: 0;
+  transform: translateY(-28px);
+  transition-duration: 400ms;
+}
+@media (max-width: 880px) {
+  .process-step {
+    grid-template-columns: 1fr;
+    gap: var(--s-3);
+  }
+}
+
+/* Step counter / dots */
+.process-dots {
+  display: flex;
+  gap: var(--s-3);
+  margin-bottom: var(--s-7);
+}
+.process-dot {
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--ink-4);
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.process-dot.is-done {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.process-dot.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* Scroll hint inside pinned section */
+.process-scroll-hint {
+  position: absolute;
+  bottom: var(--s-7);
+  left: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  opacity: 1;
+  transition: opacity var(--dur) var(--ease);
+}
+.process-scroll-hint.is-hidden {
+  opacity: 0;
+}
+
+/* ── 3. KPI counter ──────────────────────────────────────────────────────── */
+.case__kpi-num {
+  /* keep existing styles; JS animates textContent */
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 4. Hero word-reveal ──────────────────────────────────────────────────── */
+.hero__line {
+  display: block;
+  overflow: hidden; /* clip the slide-up */
+}
+.hero__line-inner {
+  display: block;
+  opacity: 0;
+  transform: translateY(0.18em);
+  transition:
+    opacity 800ms var(--ease-out),
+    transform 800ms var(--ease-out);
+}
+.hero__line-inner.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero__line:nth-child(2) .hero__line-inner {
+  transition-delay: 160ms;
+}
