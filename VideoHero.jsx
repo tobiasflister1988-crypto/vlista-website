@@ -60,7 +60,7 @@ function VideoHero() {
         <video
           ref={videoRef}
           className="video-bg"
-          src="assets/hero-video.mp4"
+          src="assets/hero-video-web.mp4"
           muted
           playsInline
           preload="auto"
