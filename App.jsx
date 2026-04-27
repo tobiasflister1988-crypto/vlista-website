@@ -44,6 +44,7 @@ function App() {
 
       <Header />
       <Hero />
+      <VideoHero />
       <Services />
       <Process />
       <CaseStudies />

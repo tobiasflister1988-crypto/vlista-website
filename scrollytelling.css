@@ -18,6 +18,99 @@
   transform-origin: left;
 }
 
+/* ── Video Pinned Hero ───────────────────────────────────────────────────── */
+.video-scene {
+  position: relative;
+  height: 300vh;
+}
+.video-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--ink);
+}
+.video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+}
+.video-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--s-9) var(--gutter);
+  max-width: var(--max-w);
+  margin: 0 auto;
+  right: 0;
+}
+.video-phase {
+  position: absolute;
+  bottom: var(--s-9);
+  left: var(--gutter);
+  right: var(--gutter);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 500ms var(--ease-out),
+    transform 500ms var(--ease-out);
+  pointer-events: none;
+}
+.video-phase.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.video-line {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(72px, 14vw, 240px);
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--inverse-fg);
+}
+/* progress bar inside video panel */
+.video-bar-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.15);
+}
+.video-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--inverse-fg);
+  transition: width 80ms linear;
+}
+/* scroll hint */
+.video-hint {
+  position: absolute;
+  bottom: var(--s-7);
+  right: var(--gutter);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 244, 240, 0.6);
+  transition: opacity 400ms var(--ease);
+}
+.video-hint.is-gone { opacity: 0; }
+
 /* ── 2. Pinned scroll scene (Process) ────────────────────────────────────── */
 .scroll-scene {
   position: relative;
