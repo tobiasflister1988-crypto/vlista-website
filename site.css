@@ -17,7 +17,16 @@ body { margin: 0; }
   max-width: var(--max-w);
   margin: 0 auto;
   position: relative;
-  background: var(--paper);
+  background: transparent;
+  /* invert tokens so text is readable on dark video */
+  --ink:        #F5F4F0;
+  --ink-2:      rgba(245,244,240,0.78);
+  --ink-3:      rgba(245,244,240,0.50);
+  --ink-4:      rgba(245,244,240,0.28);
+  --rule:       rgba(245,244,240,0.15);
+  --rule-strong:rgba(245,244,240,0.40);
+  --paper-2:    rgba(245,244,240,0.08);
+  color: #F5F4F0;
 }
 .section--first  { padding-top: var(--s-9); }
 .section--last   { padding-bottom: var(--s-8); }
@@ -63,7 +72,14 @@ body { margin: 0; }
 
 /* Hero */
 .hero {
-  background: var(--paper);
+  background: transparent;
+  --ink:        #F5F4F0;
+  --ink-2:      rgba(245,244,240,0.78);
+  --ink-3:      rgba(245,244,240,0.50);
+  --ink-4:      rgba(245,244,240,0.28);
+  --rule:       rgba(245,244,240,0.15);
+  --rule-strong:rgba(245,244,240,0.40);
+  color: #F5F4F0;
   min-height: calc(100vh - 80px);
   padding: var(--s-9) var(--gutter) var(--s-8);
   max-width: var(--max-w);
@@ -258,7 +274,14 @@ body { margin: 0; }
 
 /* Contact / footer */
 .contact {
-  background: var(--paper);
+  background: transparent;
+  --ink:        #F5F4F0;
+  --ink-2:      rgba(245,244,240,0.78);
+  --ink-3:      rgba(245,244,240,0.50);
+  --ink-4:      rgba(245,244,240,0.28);
+  --rule:       rgba(245,244,240,0.15);
+  --rule-strong:rgba(245,244,240,0.40);
+  color: #F5F4F0;
   padding: var(--s-11) var(--gutter) var(--s-7);
   max-width: var(--max-w);
   margin: 0 auto;
