@@ -1,4 +1,4 @@
-/* VideoHero.jsx — Pinned video + scroll-scrubbing */
+/* VideoHero.jsx */
 const VIDEO_PHASES = [
   { line1: "WENIGER",  line2: "ZEIT"    },
   { line1: "MEHR",     line2: "CONTENT" },
@@ -15,16 +15,14 @@ function VideoHero() {
     const video = videoRef.current;
     const scene = sceneRef.current;
 
-    // core scrub — runs on every scroll event AND after metadata loads
     const scrub = () => {
-      const { top, height } = scene.getBoundingClientRect();
-      const viewH = window.innerHeight;
-      const p = Math.max(0, Math.min(1, -top / (height - viewH)));
+      const rect = scene.getBoundingClientRect();
+      const scrolled = -rect.top;
+      const travelDistance = rect.height - window.innerHeight;
+      const p = Math.max(0, Math.min(1, scrolled / travelDistance));
 
-      // only seek when duration is known
-      if (video.duration && isFinite(video.duration)) {
+      if (video.readyState >= 1 && isFinite(video.duration) && video.duration > 0) {
         video.currentTime = p * video.duration;
-        // prevent browser from auto-playing after seek
         video.pause();
       }
 
@@ -32,36 +30,31 @@ function VideoHero() {
       setPhase(p < 0.33 ? 0 : p < 0.66 ? 1 : 2);
     };
 
-    // re-run scrub once duration is available
     video.addEventListener("loadedmetadata", scrub);
-    // re-run if more data arrives (canplay covers partial loads)
-    video.addEventListener("canplay", scrub);
-
+    video.addEventListener("canplaythrough", scrub);
     window.addEventListener("scroll", scrub, { passive: true });
-    scrub(); // initial position on mount
+    scrub();
 
     return () => {
       video.removeEventListener("loadedmetadata", scrub);
-      video.removeEventListener("canplay", scrub);
+      video.removeEventListener("canplaythrough", scrub);
       window.removeEventListener("scroll", scrub);
     };
-  }, []); // runs once — no external deps needed
+  }, []);
 
   return (
     <div className="video-scene" ref={sceneRef}>
       <div className="video-sticky">
-
         <video
           ref={videoRef}
           className="video-bg"
           src="assets/hero-video-web.mp4"
+          poster="assets/hero-poster.jpg"
           muted
           playsInline
           preload="auto"
         />
-
-        <div className="video-overlay" aria-hidden="true" />
-
+        <div className="video-overlay" />
         <div className="video-text">
           {VIDEO_PHASES.map((ph, i) => (
             <p key={i} className={`video-phase ${i === phase ? "is-active" : ""}`}>
@@ -70,15 +63,12 @@ function VideoHero() {
             </p>
           ))}
         </div>
-
-        <div className="video-bar-track" aria-hidden="true">
+        <div className="video-bar-track">
           <div className="video-bar-fill" ref={fillRef} />
         </div>
-
         <div className={`video-hint ${phase > 0 ? "is-gone" : ""}`}>
           # SCROLLEN ↓
         </div>
-
       </div>
     </div>
   );

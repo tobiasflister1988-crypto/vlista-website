@@ -28,35 +28,36 @@
   top: 0;
   height: 100vh;
   overflow: hidden;
-  background: var(--ink);
+  background: #000;
 }
+
+/* z-index stack: video(0) → overlay(1) → text(2) → bar/hint(3) */
 .video-bg {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
+  z-index: 0;
 }
 .video-overlay {
   position: absolute;
-  inset: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.00) 0%,
-    rgba(0,0,0,0.00) 55%,
-    rgba(0,0,0,0.50) 100%
+    transparent        0%,
+    transparent        50%,
+    rgba(0,0,0,0.55)  100%
   );
 }
 .video-text {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: var(--s-9) var(--gutter);
-  max-width: var(--max-w);
-  margin: 0 auto;
-  right: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 2;
 }
 .video-phase {
   position: absolute;
@@ -68,9 +69,7 @@
   flex-direction: column;
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    opacity 500ms var(--ease-out),
-    transform 500ms var(--ease-out);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
   pointer-events: none;
 }
 .video-phase.is-active {
@@ -85,33 +84,31 @@
   line-height: 0.88;
   letter-spacing: -0.05em;
   text-transform: uppercase;
-  color: var(--inverse-fg);
+  color: #F5F4F0;
 }
-/* progress bar inside video panel */
 .video-bar-track {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: 3px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.2);
+  z-index: 3;
 }
 .video-bar-fill {
   height: 100%;
   width: 0%;
-  background: var(--inverse-fg);
+  background: #F5F4F0;
   transition: width 80ms linear;
 }
-/* scroll hint */
 .video-hint {
   position: absolute;
   bottom: var(--s-7);
   right: var(--gutter);
+  z-index: 3;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(245, 244, 240, 0.6);
+  color: rgba(245,244,240,0.6);
   transition: opacity 400ms var(--ease);
 }
 .video-hint.is-gone { opacity: 0; }
