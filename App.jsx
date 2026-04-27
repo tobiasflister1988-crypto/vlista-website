@@ -43,8 +43,8 @@ function App() {
       </div>
 
       <Header />
-      <Hero />
       <VideoHero />
+      <Hero />
       <Services />
       <Process />
       <CaseStudies />
