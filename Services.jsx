@@ -9,11 +9,11 @@ const SERVICES = [
 function Services() {
   return (
     <section className="section" id="services" data-screen-label="02 Leistungen">
-      <div className="eyebrow"><span className="marker">+</span> LEISTUNGEN</div>
-      <h2 className="section-title">WAS WIR<br/>MACHEN</h2>
-      <div className="list-rows">
+      <div className="eyebrow trigger" data-stagger><span className="marker">+</span> LEISTUNGEN</div>
+      <h2 className="section-title trigger"  data-stagger>WAS WIR<br/>MACHEN</h2>
+      <div className="list-rows trigger" data-stagger>
         {SERVICES.map(s => (
-          <div className="list-row" key={s.num}>
+          <div className="list-row" key={s.num} data-stagger>
             <div className="list-row__num">{s.num}</div>
             <div className="list-row__title">{s.title}</div>
             <p className="list-row__desc">{s.desc}</p>

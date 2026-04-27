@@ -113,7 +113,111 @@
 }
 .video-hint.is-gone { opacity: 0; }
 
-/* ── 2. Pinned scroll scene (Process) ────────────────────────────────────── */
+/* ── 2. Parallax ─────────────────────────────────────────────────────────── */
+/* JS sets translateY via inline style — CSS only ensures smooth rendering */
+.hero__statement,
+.hero__scroll {
+  will-change: transform;
+}
+
+/* ── 3. Trigger-Events ───────────────────────────────────────────────────── */
+/* Base: invisible. Triggered: animates in. */
+.trigger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+}
+.trigger.triggered {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Staggered children inside a triggered parent */
+[data-stagger] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+[data-stagger].triggered {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── 4. Sticky Content ───────────────────────────────────────────────────── */
+.sticky-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+
+/* LEFT — sticky card */
+.sticky-col-left {
+  position: sticky;
+  top: calc(50vh - 180px);
+}
+.sticky-card {
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: var(--s-7) 0;
+}
+.sticky-card__num {
+  font-size: clamp(80px, 11vw, 160px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--ink);
+  font-feature-settings: "tnum";
+  transition: all 400ms var(--ease-out);
+}
+.sticky-card__title {
+  font-size: clamp(32px, 5vw, 72px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  margin: var(--s-3) 0 var(--s-4);
+  transition: all 400ms var(--ease-out);
+}
+.sticky-card__sub {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+}
+
+/* RIGHT — scrolling items */
+.sticky-col-right {
+  padding-top: var(--s-3);
+}
+.sticky-item {
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--s-8) 0;
+  border-bottom: 1px solid var(--rule);
+  opacity: 0.25;
+  transition: opacity 500ms var(--ease-out);
+}
+.sticky-item:last-child { border-bottom: 1px solid var(--rule-strong); }
+.sticky-item.is-active  { opacity: 1; }
+.sticky-item__desc {
+  font-size: clamp(17px, 1.4vw, 22px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 48ch;
+  margin: 0;
+}
+
+@media (max-width: 880px) {
+  .sticky-layout { grid-template-columns: 1fr; }
+  .sticky-col-left { position: static; }
+  .sticky-item { min-height: auto; padding: var(--s-6) 0; opacity: 1; }
+}
+
+/* ── 5. Pinned scroll scene (Process) ────────────────────────────────────── */
 .scroll-scene {
   position: relative;
   height: 350vh;
