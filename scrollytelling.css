@@ -154,8 +154,7 @@
   top: calc(50vh - 180px);
 }
 .sticky-card {
-  border-top: 1px solid var(--rule-strong);
-  border-bottom: 1px solid var(--rule-strong);
+  border: none;
   padding: var(--s-7) 0;
 }
 .sticky-card__num {
@@ -194,11 +193,11 @@
   flex-direction: column;
   justify-content: center;
   padding: var(--s-8) 0;
-  border-bottom: 1px solid var(--rule);
+  border: none;
   opacity: 0.25;
   transition: opacity 500ms var(--ease-out);
 }
-.sticky-item:last-child { border-bottom: 1px solid var(--rule-strong); }
+.sticky-item:last-child { border: none; }
 .sticky-item.is-active  { opacity: 1; }
 .sticky-item__desc {
   font-size: clamp(17px, 1.4vw, 22px);
