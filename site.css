@@ -18,7 +18,8 @@ body { margin: 0; }
   margin: 0 auto;
   position: relative;
   background: transparent;
-  /* invert tokens so text is readable on dark video */
+  /* dark scrim ensures white text is readable regardless of video frame */
+  background: rgba(0,0,0,0.38);
   --ink:        #F5F4F0;
   --ink-2:      rgba(245,244,240,0.78);
   --ink-3:      rgba(245,244,240,0.50);
@@ -96,6 +97,7 @@ body { margin: 0; }
   text-transform: uppercase;
   margin: 0;
   margin-top: auto;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.55);
 }
 .hero__line { display: block; }
 .hero__scroll {
@@ -126,6 +128,7 @@ body { margin: 0; }
   letter-spacing: -0.04em;
   text-transform: uppercase;
   margin: 0 0 var(--s-9) 0;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
 }
 
 /* Stacked list (services / process) */
