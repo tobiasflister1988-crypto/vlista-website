@@ -89,6 +89,7 @@ function App() {
 
       <Header />
       <VideoHero />
+      <Hero />
       <Services />
       <StickyFeature />
       <Process />
