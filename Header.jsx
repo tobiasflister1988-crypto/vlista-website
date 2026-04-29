@@ -4,7 +4,7 @@ function Header() {
     <header className="header" data-screen-label="Header">
       <a href="#top" className="header__word" aria-label="VLISTA — Startseite">VLISTA</a>
       <nav className="header__social" aria-label="Social Media">
-        <a href="https://www.instagram.com/vlista.de" target="_blank" rel="noopener" className="header__social-link" aria-label="Instagram">
+        <a href="https://www.instagram.com/himynameis_kintaro/" target="_blank" rel="noopener" className="header__social-link" aria-label="Instagram">
           <i className="fab fa-instagram header__icon-instagram"></i>
         </a>
         <a href="https://www.tiktok.com/@vlista.de" target="_blank" rel="noopener" className="header__social-link" aria-label="TikTok">
