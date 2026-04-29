@@ -99,7 +99,7 @@
 }
 .video-logo {
   display: block;
-  height: clamp(60px, 10vw, 160px);
+  height: clamp(300px, 50vw, 800px);
   width: auto;
   border-radius: 8px;
   margin-top: 8px;

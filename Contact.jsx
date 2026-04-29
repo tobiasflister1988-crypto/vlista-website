@@ -9,7 +9,7 @@ function Contact() {
       <a href="mailto:hello@vlista.de" className="contact__email">HELLO@VLISTA.DE</a>
       <div className="footer-meta">
         <span><img src="assets/logo.png" className="footer-meta__logo" alt="VLISTA" /> · EDERMÜNDE, DEUTSCHLAND</span>
-        <span>© VLISTA.MEDIA 2026 — ALLE RECHTE VORBEHALTEN</span>
+        <span><img src="assets/logo.png" className="footer-meta__logo" alt="VLISTA" /> 2026 — ALLE RECHTE VORBEHALTEN</span>
       </div>
     </footer>
   );
