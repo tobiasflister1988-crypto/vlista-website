@@ -82,7 +82,7 @@
   line-height: 0.88;
   letter-spacing: -0.05em;
   text-transform: uppercase;
-  color: #F5F4F0;
+  color: #FE5D4D;
 }
 .video-bar-track {
   position: absolute;
@@ -94,7 +94,7 @@
 .video-bar-fill {
   height: 100%;
   width: 0%;
-  background: #F5F4F0;
+  background: #FE5D4D;
   transition: width 80ms linear;
 }
 .video-logo {

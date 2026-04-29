@@ -11,10 +11,10 @@
 
 :root {
   /* ----- Color tokens ---------------------------------------------------- */
-  --ink:        #0A0A0A;   /* fg1 — body, headlines */
-  --ink-2:      #1A1A1A;   /* fg2 — secondary text on white */
-  --ink-3:      #6E6E6E;   /* fg3 — meta, captions, scroll hints */
-  --ink-4:      #B5B5B5;   /* fg4 — disabled, placeholder */
+  --ink:        #FE5D4D;   /* fg1 — body, headlines */
+  --ink-2:      rgba(254,93,77,0.80);   /* fg2 — secondary text */
+  --ink-3:      rgba(254,93,77,0.55);   /* fg3 — meta, captions, scroll hints */
+  --ink-4:      rgba(254,93,77,0.30);   /* fg4 — disabled, placeholder */
   --rule:       #E5E5E5;   /* hairline rule */
   --rule-strong:#0A0A0A;   /* full-weight rule */
 
