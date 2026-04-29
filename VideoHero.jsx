@@ -2,7 +2,7 @@
 const VIDEO_PHASES = [
   { line1: "WENIGER",  line2: "ZEIT"    },
   { line1: "MEHR",     line2: "CONTENT" },
-  { line1: "MIT",      line2: "VLISTA"  },
+  { line1: "MIT",      line2: null, logoPhase: true },
 ];
 
 function VideoHero() {
@@ -57,7 +57,10 @@ function VideoHero() {
         {VIDEO_PHASES.map((ph, i) => (
           <p key={i} className={`video-phase ${i === phase ? "is-active" : ""}`}>
             <span className="video-line">{ph.line1}</span>
-            <span className="video-line">{ph.line2}</span>
+            {ph.logoPhase
+              ? <img src="assets/logo.png" className="video-logo" alt="VLISTA" />
+              : <span className="video-line">{ph.line2}</span>
+            }
           </p>
         ))}
       </div>

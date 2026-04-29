@@ -2,7 +2,9 @@
 function Header() {
   return (
     <header className="header" data-screen-label="Header">
-      <a href="#top" className="header__word" aria-label="VLISTA — Startseite">VLISTA</a>
+      <a href="#top" className="header__logo-link" aria-label="VLISTA — Startseite">
+        <img src="assets/logo.png" className="header__logo" alt="VLISTA" />
+      </a>
       <nav className="header__social" aria-label="Social Media">
         <a href="https://www.instagram.com/himynameis_kintaro/" target="_blank" rel="noopener" className="header__social-link" aria-label="Instagram">
           <i className="fab fa-instagram header__icon-instagram"></i>

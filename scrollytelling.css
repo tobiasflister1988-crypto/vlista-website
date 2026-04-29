@@ -97,6 +97,14 @@
   background: #F5F4F0;
   transition: width 80ms linear;
 }
+.video-logo {
+  display: block;
+  height: clamp(60px, 10vw, 160px);
+  width: auto;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
 .video-hint {
   position: absolute;
   bottom: var(--s-7);
