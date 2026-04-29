@@ -70,13 +70,13 @@ body { margin: 0; }
   text-decoration: none;
 }
 .header__logo {
-  height: 220px;
+  height: 44px;
   width: auto;
   display: block;
   border-radius: 6px;
 }
 .footer-meta__logo {
-  height: 110px;
+  height: 22px;
   width: auto;
   vertical-align: middle;
   border-radius: 3px;
