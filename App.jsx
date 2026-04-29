@@ -87,6 +87,9 @@ function App() {
         <div className="scroll-bar-fill" id="scroll-bar-fill" />
       </div>
 
+      <CookieBanner />
+      <Impressum />
+      <Datenschutz />
       <Header />
       <VideoHero />
       <Hero />

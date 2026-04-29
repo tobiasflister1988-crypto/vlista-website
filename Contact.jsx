@@ -9,7 +9,12 @@ function Contact() {
       <a href="mailto:hello@vlista.de" className="contact__email">HELLO@VLISTA.DE</a>
       <div className="footer-meta">
         <span><img src="assets/logo.png" className="footer-meta__logo" alt="VLISTA" /> · EDERMÜNDE, DEUTSCHLAND</span>
-        <span>© VLISTA.MEDIA 2026 — ALLE RECHTE VORBEHALTEN</span>
+        <span>© VLISTA.MEDIA 2026</span>
+      </div>
+      <div className="footer-legal">
+        <button className="footer-legal__link" onClick={() => window.dispatchEvent(new CustomEvent("open-impressum"))}>Impressum</button>
+        <span className="footer-legal__sep">·</span>
+        <button className="footer-legal__link" onClick={() => window.dispatchEvent(new CustomEvent("open-datenschutz"))}>Datenschutz</button>
       </div>
     </footer>
   );
