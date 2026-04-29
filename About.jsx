@@ -2,6 +2,22 @@
 function About() {
   return (
     <section className="section" id="about" data-screen-label="05 Über uns">
+
+      {/* 3D rotating logo — floats over the monitor in the background video */}
+      <div className="logo3d-wrap" aria-hidden="true">
+        <div className="logo3d-scene">
+          <div className="logo3d-card">
+            <div className="logo3d-front">
+              <img src="assets/logo.png" alt="" className="logo3d-img" />
+            </div>
+            <div className="logo3d-back">
+              <img src="assets/logo.png" alt="" className="logo3d-img logo3d-img--flip" />
+            </div>
+          </div>
+        </div>
+        <div className="logo3d-shadow" />
+      </div>
+
       <div className="eyebrow"><span className="marker">+</span> ÜBER UNS</div>
       <h2 className="section-title">ÜBER<br/>VLISTA</h2>
       <div className="about__sub">KI-CONTENT-AGENTUR &nbsp;/&nbsp; EDERMÜNDE, DEUTSCHLAND</div>
