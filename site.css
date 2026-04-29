@@ -55,7 +55,7 @@ body { margin: 0; }
   justify-content: space-between;
   align-items: center;
   padding: var(--s-5) var(--gutter);
-  background: var(--paper);
+  background: transparent;
 }
 .header__word {
   font-family: var(--font-sans);
