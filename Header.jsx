@@ -15,7 +15,7 @@ function Header() {
         <a href="https://www.facebook.com/vlista.de" target="_blank" rel="noopener" className="header__social-link" aria-label="Facebook">
           <i className="fab fa-facebook header__icon-facebook"></i>
         </a>
-        <a href="https://www.linkedin.com/company/vlista" target="_blank" rel="noopener" className="header__social-link" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/tobias-flister-33aa01373/" target="_blank" rel="noopener" className="header__social-link" aria-label="LinkedIn">
           <i className="fab fa-linkedin header__icon-linkedin"></i>
         </a>
         <a href="#contact" className="header__nav">+ KONTAKT</a>
