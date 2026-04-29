@@ -91,6 +91,7 @@ function App() {
       <VideoHero />
       <Hero />
       <Services />
+      <Packages />
       <StickyFeature />
       <Process />
       <CaseStudies />

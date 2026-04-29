@@ -1,8 +1,25 @@
 /* Process.jsx */
 const STEPS = [
-  { num: "01", title: "— BRIEFING",   desc: "Kurzes Gespräch, klares Briefing. Wir definieren Ziele, Kanäle und was Erfolg bedeutet – in Tagen, nicht Wochen." },
-  { num: "02", title: "— PRODUKTION", desc: "KI‑beschleunigte Produktion mit menschlichem Handwerk. Skripte, Schnitt, Motion und Text laufen parallel in einem Team." },
-  { num: "03", title: "— DELIVERY",   desc: "Files, wo Sie sie brauchen, auf der Plattform, wenn Sie sie brauchen. Wir messen, justieren und schärfen die nächste Welle." },
+  {
+    num: "01",
+    title: "— BRIEFING",
+    desc: "Ein 30-minütiges Gespräch reicht. Wir hören zu, stellen die richtigen Fragen und definieren gemeinsam Ziele, Zielgruppe, Kanäle und Erfolgskriterien. Kein Fragebogen-Chaos, kein wochenlanges Hin und Her.",
+  },
+  {
+    num: "02",
+    title: "— KONZEPT",
+    desc: "Auf Basis des Briefings entwickeln wir Ihre Content-Strategie: Formate, Frequenz, Tonalität und Redaktionsplan. Sie bekommen ein klares Bild, bevor die erste Produktion startet – und können steuern, bevor es teuer wird.",
+  },
+  {
+    num: "03",
+    title: "— PRODUKTION",
+    desc: "Skripte, Schnitt, Motion und Copy laufen parallel in einem eingespielten Team. KI beschleunigt Drafts und Varianten, menschliches Handwerk liefert die Qualität. Erste Assets erreichen Sie in 72 Stunden.",
+  },
+  {
+    num: "04",
+    title: "— ANALYSE",
+    desc: "Nach der Lieferung ist vor der Optimierung. Wir messen, was funktioniert, berichten transparent gegen Ihre KPIs und schärfen die nächste Content-Welle. Dauerhafter Lerneffekt inklusive.",
+  },
 ];
 
 function Process() {
@@ -15,7 +32,6 @@ function Process() {
       if (!scene) return;
       const { top, height } = scene.getBoundingClientRect();
       const viewH = window.innerHeight;
-      // progress 0→1 through the scroll scene
       const progress = (-top) / (height - viewH);
       const clamped = Math.max(0, Math.min(0.999, progress));
       const step = Math.min(Math.floor(clamped * STEPS.length), STEPS.length - 1);
@@ -30,9 +46,8 @@ function Process() {
     <div className="scroll-scene" ref={sceneRef} id="process">
       <div className="scroll-sticky">
         <div className="eyebrow"><span className="marker">+</span> SO ARBEITEN WIR</div>
-        <h2 className="section-title">DREI<br/>SCHRITTE</h2>
+        <h2 className="section-title">VIER<br/>SCHRITTE</h2>
 
-        {/* step dots */}
         <div className="process-dots" aria-hidden="true">
           {STEPS.map((_, i) => (
             <div
@@ -42,7 +57,6 @@ function Process() {
           ))}
         </div>
 
-        {/* animated steps */}
         <div className="process-stage">
           {STEPS.map((s, i) => (
             <div
@@ -56,7 +70,6 @@ function Process() {
           ))}
         </div>
 
-        {/* scroll nudge — hides after first step advances */}
         <div className={`process-scroll-hint ${active > 0 ? "is-hidden" : ""}`}>
           # WEITERSCROLLEN ↓
         </div>
