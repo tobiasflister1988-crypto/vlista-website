@@ -54,7 +54,7 @@ body { margin: 0; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--s-5) var(--gutter);
+  padding: 0 var(--gutter);
   background: var(--paper);
 }
 .header__word {
@@ -70,7 +70,7 @@ body { margin: 0; }
   text-decoration: none;
 }
 .header__logo {
-  height: 44px;
+  height: 132px;
   width: auto;
   display: block;
   border-radius: 6px;
