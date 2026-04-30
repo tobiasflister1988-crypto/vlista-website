@@ -97,20 +97,6 @@
   background: #FE5D4D;
   transition: width 80ms linear;
 }
-/* Logo overlaid on the monitor screen in the background video */
-.monitor-screen-logo {
-  position: fixed;
-  top: 44%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(140px, 22vw, 320px);
-  height: auto;
-  z-index: 2;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  border-radius: 6px;
-}
-
 .video-logo {
   display: block;
   height: clamp(60px, 10vw, 160px);

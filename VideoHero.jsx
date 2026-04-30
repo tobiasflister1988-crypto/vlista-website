@@ -51,9 +51,6 @@ function VideoHero() {
         preload="auto"
       />
 
-      {/* Logo on monitor screen — fixed overlay, blends into white screen */}
-      <img src="assets/logo.png" className="monitor-screen-logo" alt="" aria-hidden="true" />
-
       {/* Overlay + text visible only in first viewport */}
       <div className="video-overlay" />
       <div className="video-text">
